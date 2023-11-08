@@ -77,7 +77,7 @@ You are healthy
 * General:
     * Returns a specific actor if they exist
     * Returns error and message for HTTP response status code 404 if not found
-* Sample: curl -X GET -H "Authorization: Bearer <token>" https://full-stack-capstone-project-jacob-brown.onrender.com/actors/1
+* Sample: curl -X GET -H "Authorization: Bearer \<token\>" https://full-stack-capstone-project-jacob-brown.onrender.com/actors/1
 ```
 {
     "success": True,
