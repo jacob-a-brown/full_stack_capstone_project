@@ -10,7 +10,8 @@ This is the capstone project for Udacity's full stack web developer course.
 ## API References
 
 ### Getting Started
-* Based URL: This app can be run locally or accessed through Render at ------
+* Based URL: This app can be run locally or accessed through Render at 
+    https://full-stack-capstone-project-jacob-brown.onrender.com
 * Authentication: JWTs, roles, and permissions are handled via Auth0
 
 ### Error Handling
@@ -40,16 +41,73 @@ The API will return 6 error types when requests fail:
 
 ### Endpoints
 
+#### GET /am_i_healthy
+* General:
+    * Used to determine if application is hosted and running
+* Sample: curl https://full-stack-capstone-project-jacob-brown.onrender.com/am_i_healthy
+```
+You are healthy
+```
 #### GET /actors
 * General:
     * Returns a list of actor objects, success value, and total number of actors
-* Sample: curl 
+* Sample: curl https://full-stack-capstone-project-jacob-brown.onrender.com/actors
+```
+{
+    "success": True,
+    "actors": [
+        {
+            "id": 1,
+            "name": miso,
+            "age": 5,
+            "gender": "none of your business"
+        },
+        {
+            "id": 2,
+            "name": "mister",
+            "age": 3,
+            "gender": "none of your business"
+        }
+    ],
+    "num_actors": 2
+}
+```
 
 #### GET /actors/<actor_id>
+* General:
+    * Returns a specific actor if they exist
+    * Returns error and message for HTTP response status code 404 if not found
+* Sample: curl -X GET -H "Authorization: Bearer <token>" https://full-stack-capstone-project-jacob-brown.onrender.com/actors/1
+```
+{
+    "success": True,
+    "actor": {
+        "id": 1,
+        "name": "miso",
+        "age": 5,
+        "gender": "none of your business"
+    }
+}
+```
 
 #### DELETE /actors/<actor_id>
+* General:
+    * Deletes a specific actor if they exist
+    * Returns error and message for HTTP response status code 422 if not found
+* Sample: curl -X DELETE https://full-stack-capstone-project-jacob-brown.onrender.com/actors/1
+```
+{
+    "success": True,
+    "deleted": 1
+}
+```
 
 #### POST /actors
+* General:
+    * Creates a new actor
+    * Returns error and message for HTTP response status code 400 if "name", "age", or "gender" not found in the submitted data
+    * Returns error and message for HTTP response status code 422 if "name" is not a string, "age" is not an integer, or "gender" is not a string
+* Sample: curl -X POST -d 
 
 #### PATCH /actors/<actor_id>
 
