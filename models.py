@@ -8,7 +8,7 @@ from dotenv import load_dotenv, dotenv_values
 
 # load environment variables from .env file
 load_dotenv(override=True)
-DATABASE_URL = env['DATABASE_URL']
+DATABASE_URL = env['PRODUCTION_DATABASE_URL']
 
 db = SQLAlchemy()
 
